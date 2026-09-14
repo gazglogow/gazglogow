@@ -1,0 +1,42 @@
+---
+import '@fontsource-variable/manrope';
+
+import '@fontsource-variable/inter';
+
+import '../styles/global.css';
+import '../styles/editorial.css';
+import Header from '../components/Header.astro';
+import Motion from '../components/Motion.astro';
+import { site } from '../data/site';
+interface Props { title: string; description: string; noindex?: boolean; }
+const { title, description, noindex = false } = Astro.props;
+const live = import.meta.env.PUBLIC_SITE_LIVE === 'true';
+const canonical = new URL(Astro.url.pathname, site.url);
+---
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.add('nav-ready');</script>
+    <meta name="theme-color" content="#18191a" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={live && !noindex ? 'index, follow' : 'noindex, nofollow'} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Przejdź do treści</a>
+    <Header />
+    <main id="main"><slot /></main>
+    <footer class="site-footer"><div class="shell footer-inner"><a class="footer-brand" href="/">Usługi gazowe <span>· Głogów</span></a><p>Głogów i okolice</p><a href={site.phoneHref}>{site.phone}</a><span class="copyright">© {new Date().getFullYear()} gazglogow.pl</span></div></footer>
+    <Motion />
+  </body>
+</html>
+

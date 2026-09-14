@@ -1,0 +1,11 @@
+---
+const steps = [
+  { number: '01', title: 'Zadzwoń', text: 'Powiedz, jakiej usługi potrzebujesz i gdzie znajduje się nieruchomość.' },
+  { number: '02', title: 'Omówmy zakres', text: 'Porozmawiamy o Twojej instalacji i ustalimy szczegóły zlecenia.' },
+  { number: '03', title: 'Ustalmy termin', text: 'Uzgodnimy możliwy termin wizyty oraz sposób organizacji usługi.' },
+];
+---
+<section class="section process-section" id="jak-zamowic" aria-labelledby="process-title"><div class="shell">
+  <div class="section-heading"><p class="eyebrow"><span class="tiny-line"></span> Jak zamówić</p><div><h2 id="process-title">Zacznijmy<br />od rozmowy.</h2><p>Nie musisz znać technicznych szczegółów.<br />Opowiedz nam, czego potrzebujesz.</p></div></div>
+  <ol class="process-list">{steps.map(step => <li><span class="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
+</div></section>

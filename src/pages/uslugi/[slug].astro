@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import Contact from '../../components/Contact.astro';
+import Icon from '../../components/Icon.astro';
+import { services, type Service } from '../../data/services';
+import { site } from '../../data/site';
+export function getStaticPaths() { return services.map(service => ({ params: { slug: service.slug }, props: { service } })); }
+interface Props { service: Service; }
+const { service } = Astro.props;
+---
+<Base title={`${service.title} — Głogów i okolice`} description={service.description}>
+  <section class="detail-hero"><div class="shell">
+    <nav class="breadcrumbs" aria-label="Ścieżka nawigacji"><a href="/">Strona główna</a><span aria-hidden="true">/</span><a href="/#uslugi">Usługi</a><span aria-hidden="true">/</span><span aria-current="page">{service.title}</span></nav>
+    <div class="detail-heading"><div><p class="eyebrow"><span class="tiny-line"></span>{site.area}</p><h1>{service.title}<span class="red-dot">.</span></h1><p>{service.intro}</p><a class="button button-primary" href={site.phoneHref}><Icon name="phone" />Zadzwoń: {site.phone}</a></div><span class="detail-number" aria-hidden="true">{service.number}</span></div>
+  </div></section>
+  <section class="section"><div class="shell detail-content"><div><p class="eyebrow"><span class="tiny-line"></span> O usłudze</p><h2>Ustalmy szczegóły.</h2><p class="detail-description">{service.details}</p></div><aside class="prepare-panel" aria-labelledby="prepare-title"><h3 id="prepare-title">Co warto podać<br />podczas rozmowy</h3><ul>{service.prepare.map(item => <li><Icon name="check" /><span>{item}</span></li>)}</ul><p>Nie musisz znać wszystkich szczegółów — opisz swoją sprawę.</p></aside></div></section>
+  <section class="other-services"><div class="shell"><h2>Pozostałe usługi</h2><div>{services.filter(item => item.slug !== service.slug).map(item => <a href={`/uslugi/${item.slug}/`}>{item.title}<Icon name="arrow" /></a>)}</div></div></section>
+  <Contact />
+</Base>

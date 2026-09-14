@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+<section class="audience-section" id="dla-kogo" aria-labelledby="audience-title">
+  <div class="shell audience-grid">
+    <div class="audience-intro"><p class="eyebrow"><span class="tiny-line"></span> Dla kogo pracujemy</p><h2 id="audience-title">Blisko domu.<br />Blisko Twoich<br /><span>potrzeb.</span></h2><p>Jesteśmy zespołem świadczącym usługi gazowe w Głogowie i okolicach. Porozmawiajmy o Twojej instalacji.</p><a class="text-link" href={site.phoneHref}>Omów swoją sprawę <span class="circle-arrow"><Icon name="arrow" /></span></a></div>
+    <div class="audience-items">
+      <article><span class="audience-index">01 / KLIENCI PRYWATNI</span><h3>Domy i mieszkania</h3><p>Przegląd instalacji, podłączenie urządzenia lub próba szczelności. Pomagamy ustalić zakres potrzebnej usługi.</p></article>
+      <article><span class="audience-index">02 / NIERUCHOMOŚCI</span><h3>Zarządcy i wspólnoty</h3><p>Zapytania dotyczące lokali i zarządzanych nieruchomości. Podczas rozmowy omówimy zakres oraz organizację zlecenia.</p></article>
+      <article><span class="audience-index">03 / BIZNES</span><h3>Firmy</h3><p>Usługi dotyczące instalacji gazowych w obiektach firmowych. Opisz potrzeby swojego obiektu, aby ustalić możliwość realizacji.</p></article>
+    </div>
+  </div>
+</section>

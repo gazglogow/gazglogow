@@ -1,0 +1,8 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+<section class="contact-section" id="kontakt" aria-labelledby="contact-title"><div class="shell contact-grid">
+  <div><p class="eyebrow"><span class="tiny-line"></span> Głogów i okolice</p><h2 id="contact-title">Porozmawiajmy<br />o Twojej instalacji.</h2><p>Zadzwoń, aby omówić usługę i ustalić termin.</p></div>
+  <div class="contact-phone"><span>KONTAKT TELEFONICZNY</span><a href={site.phoneHref} aria-label={`Zadzwoń: ${site.phone}`}>{site.phone}<span class="circle-arrow"><Icon name="phone" /></span></a><p>Przeglądy · Podłączanie urządzeń<br />Próby szczelności · Opinie techniczne</p></div>
+</div></section>

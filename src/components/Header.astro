@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="wordmark" href="/" aria-label="Usługi gazowe — Głogów. Strona główna">
+      <span class="brand-mark" aria-hidden="true">g<span>·</span></span>
+      <span>usługi gazowe<span class="brand-location">GŁOGÓW I OKOLICE</span></span>
+    </a>
+    <a class="header-phone mobile-phone" href={site.phoneHref} aria-label={`Zadzwoń: ${site.phone}`}><Icon name="phone" /><span>{site.phone}</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">+</span></button>
+    <nav id="main-nav" aria-label="Menu główne">
+      <a href="/#uslugi">Usługi</a><a href="/#dla-kogo">Dla kogo</a><a href="/#jak-zamowic">Jak zamówić</a><a href="/#kontakt">Kontakt</a>
+    </nav>
+    <a class="header-phone desktop-phone" href={site.phoneHref} aria-label={`Zadzwoń: ${site.phone}`}><Icon name="phone" /><span>{site.phone}</span></a>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#main-nav');
+  if (toggle && nav) {
+    toggle.hidden = false;
+    document.documentElement.classList.add('nav-ready');
+    const close = () => { toggle.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); };
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      nav.classList.toggle('is-open', open);
+    });
+    nav.addEventListener('click', (event) => { if ((event.target as HTMLElement).closest('a')) close(); });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { close(); toggle.focus(); }
+    });
+    document.addEventListener('click', (event) => { if (!(event.target as HTMLElement).closest('.site-header')) close(); });
+    matchMedia('(min-width: 1001px)').addEventListener('change', close);
+  }
+</script>
