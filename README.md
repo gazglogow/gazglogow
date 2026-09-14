@@ -68,7 +68,7 @@ Podgląd developerski: http://127.0.0.1:4321/. Podgląd statycznego builda do te
 - Poprawki po review: kolejność klawiatury, etykiety telefonów, kadr tabletowy, kontrast numeracji, 404 zawsze noindex, usunięcie początkowego przesunięcia mobilnej nawigacji.
 
 ## 6. Elementy w trakcie
-Końcowy pomiar stabilności układu po poprawce menu i dokumentacja przekazania. Publikacja czeka na zakup/konfigurację OVHcloud i uzupełnienie danych podmiotu.
+Lokalna V1 ukończona; na prośbę właściciela przygotowano gotowy statyczny pakiet do samodzielnego wgrania. Publikacja nie została wykonana. Indeksowanie pozostaje wyłączone do uzupełnienia danych i konfiguracji hostingu.
 
 ## 7. TODO przed publikacją
 1. Uzupełnić rzeczywiste dane podmiotu świadczącego usługi i odpowiednią informację o prywatności; e-mail właściciel poda później. Nie tworzyć fikcyjnych danych.
@@ -102,3 +102,17 @@ Brak znanych krytycznych błędów działającej V1 w sprawdzonym zakresie. Nie 
 
 ## 10. Pomysły na później
 Potwierdzone zakresy czynności i FAQ, O zespole, blog i baza wiedzy, własne wideo, materiały do pobrania, e-booki oraz oddzielnie zaprojektowana sprzedaż cyfrowa. Treści i komponenty są rozdzielone, aby można było je rozwijać bez przebudowy podstawowej oferty.
+
+## Paczka HTML przekazana właścicielowi
+- output/gazglogow-hosting.zip — komplet plików do głównego katalogu domeny, bez Node/Astro po stronie serwera.
+- output/gazglogow-hosting/ — te same pliki rozpakowane; dodany .htaccess z 404 i podstawowymi nagłówkami Apache.
+- output/INSTRUKCJA-WGRANIA.txt — instrukcja FTP/SFTP, konfiguracja i jawna informacja noindex.
+- output/gazglogow-zrodla.zip — źródła do późniejszych zmian; nie wysyłać ich na hosting.
+
+Pomiar po naprawie menu: 3 lokalne próby Chrome, 390×844, CPU 4×, 1,6 Mbps, 150 ms, zimna pamięć podręczna. LCP 872/960/1032 ms (mediana 960 ms), CLS 0,00107. To laboratoryjna symulacja, nie dane terenowe Core Web Vitals ani gwarancja wyników OVHcloud. Ostatni dodatkowy turn Quality Engineera przerwał limit użycia; wcześniejszy niezależny PASS etapu 2 zachowany. Końcowe poprawki i paczkę sprawdza główny agent.
+
+
+## Pliki do pobrania z GitHuba
+Gotowy pakiet HTML do wgrania na hosting: [gazglogow-hosting.zip](pobierz/gazglogow-hosting.zip). [Instrukcja FTP/SFTP](pobierz/INSTRUKCJA-WGRANIA.txt). ZIP zawiera bieżącą wersję z noindex. Repozytorium: https://github.com/gazglogow/gazglogow. Wysłanie plików do repozytorium nie oznacza potwierdzenia wdrożenia na OVHcloud ani powodzenia GitHub Pages.
+
+

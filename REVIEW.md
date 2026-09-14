@@ -7,7 +7,7 @@ Oceny pochodzą od trzech rzeczywistych subagentów: ux_designer, creative_direc
 | Plan discovery | 9/10 | 9/10 | PASS dla planu | Zaakceptowany przez właściciela; bez ocen nieistniejącego kodu |
 | Fundament, hero, nawigacja | 8,5/10 | 8/10 | Najpierw FAIL lint, po poprawce PASS | Zamknięty w swoim zakresie; sekcje jeszcze nie były gotowe |
 | Pełna oferta i zmiana Ferrari | 8,5/10 | 8,5/10 | PASS podglądu | Poprawiono tabletowy kadr, kontrast numeracji, 404 i ikonę telefonu |
-| Końcowa V1 | 9/10 | 8,5/10 | Końcowy przegląd uzupełniający w toku | Lokalna V1; publiczne wdrożenie czeka na dane i hosting |
+| Końcowa V1 | 9/10 | 8,5/10 | Wcześniejszy PASS etapu 2; poprawki końcowe sprawdził Project Lead | Lokalna V1; publiczne wdrożenie czeka na dane i hosting |
 
 ## Wdrożone uwagi
 - Usunięto mylący ozdobny plus i nakładające się ramy w hero; zmiana kierunku właściciela wprowadziła pełnoszeroką kompozycję carbon.
@@ -24,3 +24,7 @@ Quality Engineer niezależnie wykonał check/lint/build i 4 testy statycznego wy
 
 ## Ograniczenia
 Brak testów fizycznego Safari/iPhone i publicznego OVHcloud, brak rzeczywistych danych Core Web Vitals. Nieznane dane podmiotu, konfiguracja hostingu i informacja o prywatności pozostają warunkami publikacji, nie są zastępowane fikcyjną treścią.
+
+Dodatkowy końcowy turn Quality Engineera zakończył się błędem limitu użycia; nie uzyskano z niego nowej oceny. Nie przedstawiamy go jako PASS. Wcześniejsze niezależne check/lint/build i testy etapu 2 były PASS. Główny agent domknął weryfikację zmian i przygotowanie plików.
+Po naprawie pierwszego renderu nawigacji CLS w trzech próbach laboratoryjnych spadł do 0,00107; mediana LCP 960 ms. Szczegóły środowiska w qa/performance.json.
+

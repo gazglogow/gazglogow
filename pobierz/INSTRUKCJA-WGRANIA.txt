@@ -1,0 +1,30 @@
+GAZGLOGOW.PL — GOTOWE PLIKI STRONY
+
+1. Rozpakuj gazglogow-hosting.zip na komputerze.
+2. Połącz się z hostingiem OVHcloud przez FileZillę lub inny program FTP/SFTP.
+3. Otwórz katalog przypisany do domeny gazglogow.pl (często www; sprawdź ustawienie domeny w panelu OVHcloud).
+4. Jeśli są tam obecne pliki strony, najpierw pobierz ich kopię zapasową.
+5. Wgraj ZAWARTOŚĆ rozpakowanej paczki do tego katalogu:
+   index.html, 404.html, favicon.svg, robots.txt, sitemap.xml, .htaccess
+   oraz całe katalogi _astro, images i uslugi.
+   Plik index.html ma leżeć bezpośrednio w katalogu domeny, nie w dodatkowym podkatalogu gazglogow-hosting.
+6. Upewnij się, że program pokazuje i przesyła również ukryty plik .htaccess.
+7. W panelu OVHcloud skonfiguruj domenę i certyfikat SSL. Po aktywacji sprawdź https://gazglogow.pl/.
+8. Sprawdź telefon, menu i wszystkie cztery podstrony. .htaccess zawiera ustawienie strony błędu 404 i podstawowe nagłówki dla Apache.
+
+Na hostingu NIE trzeba instalować Node.js, Astro, npm ani bazy danych.
+HTML ma kompletne teksty i strukturę; CSS, fonty, grafiki i skrypty są lokalnymi plikami.
+Ścieżki są przygotowane dla głównego katalogu domeny, nie dla np. domena.pl/test/.
+Nie oceniaj działania przez dwuklik pliku HTML z dysku — podgląd wymaga serwera HTTP, tak jak hosting.
+
+WAŻNE O TEJ WERSJI
+To bieżąca wersja widoczna w podglądzie: kontakt 530 366 668, Głogów i okolice, bez e-maila i formularza.
+Indeksowanie przez Google jest na razie WYŁĄCZONE (meta noindex i robots.txt), zgodnie z roboczym stanem strony.
+Witryna normalnie wyświetli się pod domeną. Przed uruchomieniem indeksowania uzupełnimy dane podmiotu i informację o prywatności oraz ponownie zbudujemy paczkę.
+Nie dopisano fikcyjnych danych właściciela, uprawnień, opinii ani cen.
+Nie wysłano niczego na hosting i nie zmieniono DNS.
+
+PÓŹNIEJSZE ZMIANY
+Kod źródłowy projektu pozostaje w katalogu WWW oraz w osobnej kopii gazglogow-zrodla.zip.
+Najlepiej zmieniać źródła, a następnie ponownie budować pliki HTML. Ręczne zmiany w paczce hostingowej nie przeniosą się do źródeł automatycznie.
+Źródeł ani katalogu node_modules nie należy wrzucać na hosting.
