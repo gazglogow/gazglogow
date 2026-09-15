@@ -28,3 +28,6 @@ Brak testów fizycznego Safari/iPhone i publicznego OVHcloud, brak rzeczywistych
 Dodatkowy końcowy turn Quality Engineera zakończył się błędem limitu użycia; nie uzyskano z niego nowej oceny. Nie przedstawiamy go jako PASS. Wcześniejsze niezależne check/lint/build i testy etapu 2 były PASS. Główny agent domknął weryfikację zmian i przygotowanie plików.
 Po naprawie pierwszego renderu nawigacji CLS w trzech próbach laboratoryjnych spadł do 0,00107; mediana LCP 960 ms. Szczegóły środowiska w qa/performance.json.
 
+
+## Obsługa GitHub Pages — 2026-09-15
+Quality Engineer: PASS przeglądu helperów adresów; wskazał możliwość pominięcia tras w runnerze przeglądarkowym. Poprawiono parser sitemap i dodano wymóg pięciu tras. Główny agent: dwa buildy PASS, sześć testów statycznych PASS. Zmiany dotyczą adresów i pipeline, bez zmian kompozycji wizualnej. Dotychczasowe oceny UX i Visual dotyczą zachowanego projektu, nie są nowymi ocenami wdrożenia.

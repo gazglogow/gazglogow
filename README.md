@@ -26,6 +26,7 @@ pnpm dev
 pnpm check
 pnpm lint
 pnpm build
+pnpm exec astro build --site https://gazglogow.github.io --base /gazglogow --outDir output/github-pages
 pnpm test
 pnpm preview --port 4322
 ```
@@ -116,3 +117,7 @@ Pomiar po naprawie menu: 3 lokalne próby Chrome, 390×844, CPU 4×, 1,6 Mbps, 1
 Gotowy pakiet HTML do wgrania na hosting: [gazglogow-hosting.zip](pobierz/gazglogow-hosting.zip). [Instrukcja FTP/SFTP](pobierz/INSTRUKCJA-WGRANIA.txt). ZIP zawiera bieżącą wersję z noindex. Repozytorium: https://github.com/gazglogow/gazglogow. Wysłanie plików do repozytorium nie oznacza potwierdzenia wdrożenia na OVHcloud ani powodzenia GitHub Pages.
 
 
+
+## GitHub Pages — aktualizacja 2026-09-15
+Źródła i paczka HTML są w repozytorium gazglogow/gazglogow. Workflow buduje i wdraża Pages; obsługuje własną domenę oraz prefiks /gazglogow/. Przed wdrożeniem wykonuje check, lint, dwa buildy i sześć testów linków, obrazów oraz metadanych. Lokalnie sześć testów PASS; oba buildy PASS.
+Publiczne uruchomienie wymaga rozstrzygnięcia adresu: wykryto przekierowanie GitHub Pages na gazglogow.pl, która prowadziła do Netlify. Nie zmieniono DNS ani przypisania domeny. Indeksowanie nadal wyłączone. Paczka pobierz/ pozostaje wcześniejszą wersją dla katalogu głównego OVH.

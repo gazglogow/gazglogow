@@ -6,7 +6,8 @@ import { writeFile, readFile } from 'node:fs/promises';
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 const report = [];
 const sitemap = await readFile('dist/sitemap.xml', 'utf8');
-const routes = [...sitemap.matchAll(/<loc>https:\/\/gazglogow.pl([^<]+)<\/loc>/g)].map(match => match[1]);
+const routes = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => new URL(match[1]).pathname);
+assert.equal(routes.length, 5, 'Sitemap must contain five content routes; never skip an empty route list');
 try {
   for (const width of [390, 768, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce', hasTouch: width < 1000 });
