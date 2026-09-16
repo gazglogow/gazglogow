@@ -127,3 +127,6 @@ Publiczna witryna działa na Netlify, potwierdzone odczytem HTTP i przez właśc
 
 ## Identyfikacja i współpraca — 16.09.2026
 Zaakceptowano monogram GG z czerwonym płomieniem; wersja wektorowa w public/images/gaz-glogow-gg.svg, także favicon. Nagłówek: Instalacje gazowe / GŁOGÓW I OKOLICE. Sekcja usług ma szeroki nagłówek i osobną lokalizację. Sekcja współpracy prowadzi do https://wenerski.glogow.pl/ (partner wskazany przez właściciela, nazwa i domena sprawdzone na stronie biura). Publikacja przez GitHub main → Netlify. Indeksowanie produkcji działa od poprzedniego wdrożenia.
+
+## Rozbudowana współpraca — 16.09.2026
+Wdrożono zaakceptowany ciemny wariant współpracy: zarządcy (Biuro Obsługi Nieruchomości Wenerski, Domator), firmy (Alfa i Omega Sp. z o.o.), instytucje (realizacja zleceń dla Gminy Głogów). Logotypy w public/images/partners pochodzą z oficjalnych stron; właściciel potwierdził zgodę na użycie znaków trzech firm. Domator korzysta z działającego adresu HTTP, gdyż jego HTTPS nie przeszedł weryfikacji certyfikatu. Znak G przy gminie jest elementem typograficznym, nie herbem ani oficjalnym logo. Podgląd output/partners-preview nie jest publikowany.

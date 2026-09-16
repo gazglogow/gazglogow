@@ -227,3 +227,6 @@ h1, h2, h3 { overflow-wrap: anywhere; }
   .partners-inner { grid-template-columns: 1fr; gap: 24px; }
   .partner-link { gap: 18px; flex-wrap: wrap; }
 }
+
+/* Footer follows the approved dark cooperation section. */
+.site-footer { background: #101214; border-top: 1px solid #383d40; }
