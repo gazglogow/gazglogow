@@ -124,3 +124,6 @@ Publiczne uruchomienie wymaga rozstrzygnięcia adresu: wykryto przekierowanie Gi
 
 ## SEO — aktualizacja 16.09.2026 (zastępuje wcześniejsze instrukcje indeksowania)
 Publiczna witryna działa na Netlify, potwierdzone odczytem HTTP i przez właściciela. Wykryto aktywne noindex oraz Disallow: /. Przygotowano konfigurację netlify.toml włączającą indeksowanie produkcji i zachowującą noindex podglądów. Ręczna paczka: pnpm build:live → output/seo-production. Publikacja i zgłoszenie w Google wymagają dostępu do paneli. Pełny audyt, frazy i instrukcja: SEO-WDROZENIE.md. Weryfikacja: pnpm check, pnpm lint, build domyślny, build z prefiksem, pnpm build:live i pnpm test. Obecna strona ma 9 plików HTML (8 stron treści i 404). Nie używać starego ZIP-a gazglogow-hosting.zip do wdrożenia SEO; nowy ZIP to pobierz/gazglogow-netlify-seo.zip.
+
+## Identyfikacja i współpraca — 16.09.2026
+Zaakceptowano monogram GG z czerwonym płomieniem; wersja wektorowa w public/images/gaz-glogow-gg.svg, także favicon. Nagłówek: Instalacje gazowe / GŁOGÓW I OKOLICE. Sekcja usług ma szeroki nagłówek i osobną lokalizację. Sekcja współpracy prowadzi do https://wenerski.glogow.pl/ (partner wskazany przez właściciela, nazwa i domena sprawdzone na stronie biura). Publikacja przez GitHub main → Netlify. Indeksowanie produkcji działa od poprzedniego wdrożenia.

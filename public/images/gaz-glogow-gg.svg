@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 96" fill="none">
-  <rect width="112" height="96" rx="16" fill="#18191a"/><title>Gaz Głogów — monogram GG z płomieniem</title>
+  <title>Gaz Głogów — monogram GG z płomieniem</title>
   <defs><mask id="overlap"><rect width="112" height="96" fill="white"/><path d="M93 48a26 26 0 1 0 6 17H74" stroke="black" stroke-width="17" fill="none"/></mask></defs>
   <path d="M51 27a26 26 0 1 0 6 17H32" stroke="#fff" stroke-width="11" mask="url(#overlap)"/>
   <path d="M93 48a26 26 0 1 0 6 17H74" stroke="#fff" stroke-width="11"/>

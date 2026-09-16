@@ -190,3 +190,40 @@ h1, h2, h3 { overflow-wrap: anywhere; }
   .other-services .shell > div { grid-template-columns: 1fr; gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .cinematic-art { transform: none; } }
+
+/* Approved GG identity and spacious service introduction. */
+.brand-logo { width: 60px; height: 52px; object-fit: contain; flex-shrink: 0; }
+.wordmark { gap: 13px; font-size: 1.05rem; }
+.services-heading { margin-bottom: 64px; max-width: 960px; }
+.services-heading .eyebrow { margin-bottom: 25px; }
+.services-heading .tiny-line { width: 58px; }
+.services-heading h2 { font-size: clamp(2.2rem, 5.2vw, 4.5rem); line-height: 1.08; letter-spacing: -.045em; font-weight: 750; overflow-wrap: normal; text-wrap: balance; }
+.services-area { margin-top: 8px; font-family: var(--font-heading); font-size: clamp(1.6rem, 3.6vw, 3rem); line-height: 1.2; letter-spacing: -.035em; font-weight: 650; color: var(--muted); }
+.services-intro { margin-top: 26px; max-width: 700px; font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.65; }
+.partners-section { padding-block: 64px; background: #f3f3f1; border-top: 1px solid var(--line); }
+.partners-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+.partners-inner h2 { margin-top: 18px; font-size: clamp(1.7rem, 2.8vw, 2.4rem); }
+.partner-link { display: flex; gap: 30px; align-items: center; justify-content: space-between; padding-block: 24px; border-block: 1px solid #c9cbca; }
+.partner-category, .partner-city { display: block; font-size: .8125rem; color: var(--muted); }
+.partner-link strong { display: block; font-family: var(--font-heading); font-size: 2rem; letter-spacing: -.035em; margin-block: 2px; }
+.partner-visit { display: flex; align-items: center; gap: 14px; font-size: .75rem; white-space: nowrap; }
+.partner-link:hover strong, .partner-link:hover .partner-visit { color: var(--accent); }
+.footer-logo { display: inline-flex; align-items: center; gap: 12px; }
+@media (min-width: 1001px) and (max-width: 1200px) {
+  .header-inner { gap: 16px; }
+  #main-nav { gap: 17px; }
+  .wordmark { font-size: .95rem; gap: 9px; }
+  .brand-logo { width: 50px; height: 44px; }
+  .desktop-phone { padding-inline: 10px; font-size: .8rem; }
+}
+@media (max-width: 700px) {
+  .brand-logo { width: 47px; height: 42px; }
+  .wordmark { font-size: .9rem; gap: 9px; }
+  .services-heading { margin-bottom: 38px; }
+  .services-heading .eyebrow { margin-bottom: 20px; }
+  .services-intro { margin-top: 20px; }
+  .services-break { display: none; }
+  .partners-section { padding-block: 42px; }
+  .partners-inner { grid-template-columns: 1fr; gap: 24px; }
+  .partner-link { gap: 18px; flex-wrap: wrap; }
+}

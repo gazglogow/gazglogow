@@ -9,6 +9,7 @@ import '../styles/editorial.css';
 import '../styles/blog.css';
 import '../styles/faq.css';
 import Header from '../components/Header.astro';
+import Partners from '../components/Partners.astro';
 import Motion from '../components/Motion.astro';
 import { site } from '../data/site';
 import { isIndexable, websiteSchema } from '../data/seo';
@@ -43,7 +44,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site || site.url);
     <a class="skip-link" href="#main">Przejdź do treści</a>
     <Header />
     <main id="main"><slot /></main>
-    <footer class="site-footer"><div class="shell footer-inner"><a class="footer-brand" href={withBase('/')}>Usługi gazowe <span>· Głogów</span></a><p>Głogów i okolice</p><a href={site.phoneHref}>{site.phone}</a><span class="copyright">© {new Date().getFullYear()} gazglogow.pl</span></div></footer>
+    <Partners />
+    <footer class="site-footer"><div class="shell footer-inner"><a class="footer-brand footer-logo" href={withBase('/')}><img src={withBase('/images/gaz-glogow-gg.svg')} width="48" height="42" alt="" />Gaz Głogów</a><p>Instalacje gazowe · Głogów i okolice</p><a href={site.phoneHref}>{site.phone}</a><span class="copyright">© {new Date().getFullYear()} gazglogow.pl</span></div></footer>
     <Motion />
   </body>
 </html>

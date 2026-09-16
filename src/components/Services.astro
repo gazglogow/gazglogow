@@ -5,7 +5,7 @@ import Icon from './Icon.astro';
 ---
 <section class="section services-section" id="uslugi" aria-labelledby="services-title">
   <div class="shell">
-    <div class="section-heading"><p class="eyebrow"><span class="tiny-line"></span> Zakres usług</p><div><h2 id="services-title">Usługi gazowe<br />w Głogowie.</h2><p>Przeglądy instalacji w mieszkaniach, domach i budynkach zarządzanych przez wspólnoty oraz firmy.<br />Wybierz usługę — zakres i termin ustalimy telefonicznie.</p></div></div>
+    <div class="services-heading"><p class="eyebrow">Zakres usług<span class="tiny-line"></span></p><h2 id="services-title">Instalacje gazowe</h2><p class="services-area">Głogów i okolice</p><p class="services-intro">Przeglądy instalacji, podłączanie urządzeń,<br class="services-break" /> próby szczelności i opinie techniczne.</p></div>
     <div class="service-list">
       {services.map(service => <a class="service-row" href={withBase(`/uslugi/${service.slug}/`)}><span class="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.short}</p><span class="circle-arrow"><Icon name="arrow" /></span></a>)}
     </div>

@@ -5,9 +5,9 @@ import { site } from '../data/site';
 ---
 <header class="site-header">
   <div class="shell header-inner">
-    <a class="wordmark" href={withBase('/')} aria-label="Usługi gazowe — Głogów. Strona główna">
-      <span class="brand-mark" aria-hidden="true">g<span>·</span></span>
-      <span>usługi gazowe<span class="brand-location">GŁOGÓW I OKOLICE</span></span>
+    <a class="wordmark" href={withBase('/')} aria-label="Gaz Głogów — instalacje gazowe. Strona główna">
+      <img class="brand-logo" src={withBase('/images/gaz-glogow-gg.svg')} width="60" height="52" alt="" />
+      <span>Instalacje gazowe<span class="brand-location">GŁOGÓW I OKOLICE</span></span>
     </a>
     <a class="header-phone mobile-phone" href={site.phoneHref} aria-label={`Zadzwoń: ${site.phone}`}><Icon name="phone" /><span>{site.phone}</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">+</span></button>
