@@ -14,7 +14,7 @@ for (const target of [
 ]) {
   test(`All routes, images and metadata work at ${target.origin}${target.prefix}`, async () => {
     const pages = await htmlFiles(target.dir);
-    assert.equal(pages.length, 6);
+    assert.equal(pages.length, 9);
     for (const file of pages) {
       const html = await readFile(file, 'utf8');
       const hrefs = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1]);
@@ -31,7 +31,8 @@ for (const target of [
     }
     const sitemap = await readFile(join(target.dir, 'sitemap.xml'), 'utf8');
     const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-    assert.equal(urls.length, 5);
+    assert.equal(urls.length, 8);
     urls.forEach(url => assert.ok(url.startsWith(target.origin + target.prefix)));
   });
 }
+

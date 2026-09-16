@@ -12,7 +12,7 @@ import { site } from '../data/site';
     <a class="header-phone mobile-phone" href={site.phoneHref} aria-label={`Zadzwoń: ${site.phone}`}><Icon name="phone" /><span>{site.phone}</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">+</span></button>
     <nav id="main-nav" aria-label="Menu główne">
-      <a href={withBase('/#uslugi')}>Usługi</a><a href={withBase('/#dla-kogo')}>Dla kogo</a><a href={withBase('/#jak-zamowic')}>Jak zamówić</a><a href={withBase('/#kontakt')}>Kontakt</a>
+      <a href={withBase('/#uslugi')}>Usługi</a><a href={withBase('/#dla-kogo')}>Dla kogo</a><a href={withBase('/#jak-zamowic')}>Jak zamówić</a><a href={withBase('/blog/')} aria-current={Astro.url.pathname.includes('/blog/') ? 'page' : undefined}>Blog</a><a href={withBase('/faq/')} aria-current={Astro.url.pathname.includes('/faq/') ? 'page' : undefined}>FAQ</a><a href={withBase('/#kontakt')}>Kontakt</a>
     </nav>
     <a class="header-phone desktop-phone" href={site.phoneHref} aria-label={`Zadzwoń: ${site.phone}`}><Icon name="phone" /><span>{site.phone}</span></a>
   </div>

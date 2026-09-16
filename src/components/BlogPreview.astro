@@ -1,0 +1,11 @@
+---
+import BlogCard from './BlogCard.astro';
+import { posts } from '../data/posts';
+import { withBase } from '../data/urls';
+---
+<section class="section blog-preview" id="blog" aria-labelledby="blog-heading">
+  <div class="shell">
+    <div class="section-heading"><p class="eyebrow"><span class="tiny-line"></span>Blog / Warto wiedzieć</p><div><h2 id="blog-heading">Gaz w domu.<br />Wiedza, która pomaga.</h2><a class="text-link" href={withBase('/blog/')}>Wszystkie artykuły <span aria-hidden="true">↗</span></a></div></div>
+    <div class="blog-list">{posts.slice(0, 3).map((post, index) => <BlogCard post={post.frontmatter} latest={index === 0} />)}</div>
+  </div>
+</section>

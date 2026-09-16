@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import Contact from '../../components/Contact.astro';
+import { posts, postDate } from '../../data/posts';
+import { withBase, absoluteUrl } from '../../data/urls';
+export function getStaticPaths() { return posts.map(post => ({ params: { slug: post.frontmatter.slug }, props: { post } })); }
+const { post } = Astro.props;
+const { Content, frontmatter: data } = post;
+const schema = { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: data.title, description: data.description, datePublished: data.date, inLanguage: 'pl-PL', mainEntityOfPage: absoluteUrl(`/blog/${data.slug}/`), ...(data.image ? { image: absoluteUrl(data.image) } : {}) };
+---
+<Base title={`${data.title} | Blog Usługi Gazowe`} description={data.description} ogType="article" image={data.image}>
+  <article>
+    <header class="blog-hero"><div class="shell"><nav class="breadcrumbs" aria-label="Ścieżka nawigacji"><a href={withBase('/')}>Strona główna</a><span aria-hidden="true">/</span><a href={withBase('/blog/')}>Blog</a><span aria-hidden="true">/</span><span aria-current="page">{data.title}</span></nav><p class="eyebrow"><span class="tiny-line"></span>{data.category}</p><h1>{data.title}</h1><p class="blog-lead">{data.description}</p><p class="blog-date"><time datetime={data.date}>{postDate(data.date)}</time><span>Usługi Gazowe · Głogów</span></p></div></header>
+    {data.image && <div class="shell article-image"><img src={withBase(data.image)} alt={data.imageAlt || ''} width="1200" height="800" /></div>}
+    <div class="article-body"><Content /><p class="article-back"><a href={withBase('/blog/')}>← Wszystkie artykuły</a></p></div>
+  </article>
+  <Contact />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+</Base>
+

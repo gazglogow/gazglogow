@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { posts } from '../../data/posts';
+import { withBase } from '../../data/urls';
+---
+<Base title="Blog o instalacjach gazowych — Głogów" description="Praktycznie o instalacjach gazowych: przeglądy, obowiązki właścicieli i bezpieczeństwo w domu. Poradnik Usług Gazowych w Głogowie.">
+  <section class="blog-hero"><div class="shell"><nav class="breadcrumbs" aria-label="Ścieżka nawigacji"><a href={withBase('/')}>Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">Blog</span></nav><p class="eyebrow"><span class="tiny-line"></span>Poradnik gazowy</p><h1>Gaz w domu.<br />Dobrze wiedzieć więcej.</h1><p class="blog-lead">Przeglądy, codzienne wątpliwości i obowiązki właściciela. Wyjaśniamy prostym językiem to, co warto wiedzieć o instalacji gazowej.</p></div></section>
+  <section class="section"><div class="shell"><h2 class="blog-list-title">Najnowsze artykuły</h2><div class="blog-list">{posts.map((post, index) => <BlogCard post={post.frontmatter} latest={index === 0} />)}</div></div></section>
+</Base>

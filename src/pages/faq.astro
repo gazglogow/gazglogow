@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { withBase } from '../data/urls';
+import { site } from '../data/site';
+
+const questions = [
+  {
+    question: 'Kogo dotyczy obowiązek przeglądu instalacji gazowej?',
+    answer: 'Okresowa kontrola instalacji gazowej dotyczy właścicieli i zarządców obiektów, w których taka instalacja się znajduje. Jej celem jest potwierdzenie, że instalacja jest sprawna i bezpieczna w użytkowaniu. Zakres obowiązków może zależeć od rodzaju obiektu oraz sposobu jego użytkowania.',
+  },
+  {
+    question: 'Jak często należy kontrolować instalację gazową?',
+    answer: 'Co do zasady kontrolę instalacji gazowej wykonuje się co najmniej raz w roku, zgodnie z Prawem budowlanym. Dla budynków o powierzchni zabudowy przekraczającej 2 000 m² oraz innych obiektów z dachem większym niż 1 000 m² okresową kontrolę należy przeprowadzać co najmniej dwa razy w roku — do 31 maja i do 30 listopada.',
+  },
+  {
+    question: 'Co jest sprawdzane podczas przeglądu instalacji gazowej?',
+    answer: 'Kontrola obejmuje ocenę stanu rur, zaworów, połączeń i odbiorników gazu. Sprawdzane są między innymi możliwe nieszczelności, ślady korozji, kurek główny, gazomierz oraz elementy wpływające na bezpieczne korzystanie z instalacji. Po przeglądzie klient otrzymuje informację o stanie instalacji i, w razie potrzeby, praktyczne zalecenia.',
+  },
+  {
+    question: 'Kto ma uprawnienia do wykonania takiej kontroli?',
+    answer: 'Przegląd może przeprowadzić osoba posiadająca wymagane kwalifikacje do wykonywania dozoru nad eksploatacją instalacji gazowych. Uprawnienia wykonawcy są istotne zarówno dla bezpieczeństwa użytkowników, jak i dla prawidłowego udokumentowania kontroli.',
+  },
+  {
+    question: 'Od czego zależy cena przeglądu instalacji gazowej?',
+    answer: 'Koszt ustalany jest indywidualnie. Wpływają na niego przede wszystkim rodzaj i wielkość obiektu, stopień rozbudowania instalacji, liczba punktów poboru gazu oraz zakres niezbędnych czynności kontrolnych. Przed realizacją można uzyskać wycenę dopasowaną do konkretnego obiektu.',
+  },
+  {
+    question: 'Jak szybko można umówić przegląd?',
+    answer: 'W wielu przypadkach termin można ustalić jeszcze tego samego dnia. Jeśli natychmiastowa wizyta nie jest możliwa, proponujemy najbliższy dostępny termin, wygodny dla właściciela lub zarządcy obiektu.',
+  },
+];
+---
+<Base title="FAQ — przegląd instalacji gazowej | Głogów" description="Najczęstsze pytania o przeglądy instalacji gazowych: terminy, zakres kontroli, uprawnienia i cena.">
+  <section class="faq-hero">
+    <div class="shell">
+      <nav class="breadcrumbs" aria-label="Ścieżka nawigacji"><a href={withBase('/')}>Strona główna</a><span aria-hidden="true">/</span><span aria-current="page">FAQ</span></nav>
+      <p class="eyebrow"><span class="tiny-line"></span>Najczęstsze pytania</p>
+      <div class="faq-hero-grid">
+        <h1>Odpowiedzi, które<br />warto mieć pod ręką<span class="red-dot">.</span></h1>
+        <p>Krótko i konkretnie wyjaśniamy najważniejsze kwestie dotyczące przeglądów instalacji gazowych.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" aria-labelledby="faq-title">
+    <div class="shell faq-layout">
+      <div class="faq-intro">
+        <p class="eyebrow"><span class="tiny-line"></span>Przegląd instalacji</p>
+        <h2 id="faq-title">Najważniejsze<br />informacje.</h2>
+        <p>Nie znalazłeś odpowiedzi na swoje pytanie? Zadzwoń — chętnie pomożemy.</p>
+        <a class="text-link" href={site.phoneHref}>Zadzwoń: {site.phone}<span class="circle-arrow"><Icon name="phone" /></span></a>
+      </div>
+      <div class="faq-list">
+        {questions.map((item, index) => <details class="faq-item" open={index === 0}>
+          <summary><span class="faq-index">{String(index + 1).padStart(2, '0')}</span><span>{item.question}</span><Icon name="plus" /></summary>
+          <div class="faq-answer"><p>{item.answer}</p></div>
+        </details>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-cta">
+    <div class="shell faq-cta-inner">
+      <div><p class="eyebrow"><span class="tiny-line"></span>Potrzebujesz przeglądu?</p><h2>Ustalmy dogodny termin<span class="red-dot">.</span></h2></div>
+      <a class="button button-primary" href={site.phoneHref}>Zadzwoń teraz <Icon name="phone" /></a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,20 @@
+---
+import type { Post } from '../data/posts';
+import { postDate } from '../data/posts';
+import { withBase } from '../data/urls';
+interface Props { post: Post; latest?: boolean; }
+const { post, latest = false } = Astro.props;
+---
+<article class="blog-card">
+  <a href={withBase(`/blog/${post.slug}/`)} class="blog-card-link">
+    <div class="blog-cover">
+      {post.image ? <img src={withBase(post.image)} alt={post.imageAlt || ''} width="1200" height="800" loading="lazy" /> : <div class="blog-cover-placeholder" aria-hidden="true"><span>PORADNIK GAZOWY</span><strong>Kocioł.<br />Instalacja.<br /><em>Znaj różnicę.</em></strong><span>BEZPIECZEŃSTWO ZACZYNA SIĘ OD WIEDZY</span></div>}
+    </div>
+    <div class="blog-card-copy">
+      <p class="blog-meta">{latest && <span class="blog-badge">Najnowszy wpis</span>}<span>{post.category}</span></p>
+      <h3>{post.title}</h3>
+      <p>{post.description}</p>
+      <div class="blog-card-bottom"><time datetime={post.date}>{postDate(post.date)}</time><span class="text-link">Czytaj artykuł <span aria-hidden="true">↗</span></span></div>
+    </div>
+  </a>
+</article>
