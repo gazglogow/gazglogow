@@ -1,0 +1,22 @@
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+  ASTRO_TELEMETRY_DISABLED = "1"
+
+[context.production.environment]
+  PUBLIC_SITE_LIVE = "true"
+
+[context.deploy-preview.environment]
+  PUBLIC_SITE_LIVE = "false"
+
+[context.branch-deploy.environment]
+  PUBLIC_SITE_LIVE = "false"
+
+[[redirects]]
+  from = "https://www.gazglogow.pl/*"
+  to = "https://gazglogow.pl/:splat"
+  status = 301
+  force = true

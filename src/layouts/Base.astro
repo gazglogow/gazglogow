@@ -11,9 +11,10 @@ import '../styles/faq.css';
 import Header from '../components/Header.astro';
 import Motion from '../components/Motion.astro';
 import { site } from '../data/site';
+import { isIndexable, websiteSchema } from '../data/seo';
 interface Props { title: string; description: string; noindex?: boolean; ogType?: string; image?: string; }
 const { title, description, noindex = false, ogType = 'website', image } = Astro.props;
-const live = import.meta.env.PUBLIC_SITE_LIVE === 'true';
+const live = isIndexable;
 const canonical = new URL(Astro.url.pathname, Astro.site || site.url);
 ---
 <!doctype html>
@@ -25,15 +26,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site || site.url);
     <meta name="theme-color" content="#18191a" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content={live && !noindex ? 'index, follow' : 'noindex, nofollow'} />
+    <meta name="robots" content={live && !noindex ? 'index, follow, max-image-preview:large' : 'noindex, nofollow'} />
+    {import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && <meta name="google-site-verification" content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION} />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Usługi gazowe · Głogów" />
     {image && <meta property="og:image" content={new URL(withBase(image), Astro.site || site.url)} />}
     <meta property="og:locale" content="pl_PL" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    {!noindex && <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema).replace(/</g, '\\u003c')} />}
   </head>
   <body>
     <a class="skip-link" href="#main">Przejdź do treści</a>

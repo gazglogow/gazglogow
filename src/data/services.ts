@@ -26,7 +26,7 @@ export const services: Service[] = [
     prepare: ['Rodzaj i model urządzenia, jeśli jest znany.', 'Czy chodzi o nowe podłączenie, czy wymianę urządzenia.', 'Miejscowość, w której ma zostać wykonana usługa.'],
   },
   {
-    slug: 'proby-szczelnosci', number: '03', title: 'Próby szczelności',
+    slug: 'proby-szczelnosci', number: '03', title: 'Próby szczelności instalacji gazowych',
     short: 'Próby szczelności instalacji gazowych — zakres dopasowany do zlecenia.',
     description: 'Próby szczelności instalacji gazowych w Głogowie i okolicach. Omów swoją sprawę i ustal termin telefonicznie: 530 366 668.',
     intro: 'Szczelność ma znaczenie.',
@@ -34,7 +34,7 @@ export const services: Service[] = [
     prepare: ['Lokalizacja i rodzaj obiektu.', 'Powód zamówienia próby, opisany własnymi słowami.', 'Termin, w którym potrzebujesz usługi.'],
   },
   {
-    slug: 'opinie-techniczne', number: '04', title: 'Opinie techniczne',
+    slug: 'opinie-techniczne', number: '04', title: 'Opinie techniczne instalacji gazowych',
     short: 'Potrzebujesz opinii dotyczącej instalacji gazowej? Omówmy Twoją sprawę.',
     description: 'Opinie techniczne dotyczące instalacji gazowych — Głogów i okolice. Zadzwoń, aby omówić przedmiot i cel opinii: 530 366 668.',
     intro: 'Techniczne spojrzenie na Twoją sprawę.',

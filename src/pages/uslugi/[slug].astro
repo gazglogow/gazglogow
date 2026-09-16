@@ -1,5 +1,6 @@
 ---
-import { withBase } from '../../data/urls';
+import { withBase, absoluteUrl } from '../../data/urls';
+import { breadcrumbSchema } from '../../data/seo';
 import Base from '../../layouts/Base.astro';
 import Contact from '../../components/Contact.astro';
 import Icon from '../../components/Icon.astro';
@@ -8,6 +9,15 @@ import { site } from '../../data/site';
 export function getStaticPaths() { return services.map(service => ({ params: { slug: service.slug }, props: { service } })); }
 interface Props { service: Service; }
 const { service } = Astro.props;
+const serviceSchema = {
+  '@context': 'https://schema.org', '@type': 'Service',
+  '@id': `${absoluteUrl(`/uslugi/${service.slug}/`)}#service`,
+  name: `${service.title} — Głogów i okolice`, serviceType: service.title,
+  description: service.details, url: absoluteUrl(`/uslugi/${service.slug}/`),
+  areaServed: { '@type': 'Place', name: site.area },
+  availableChannel: { '@type': 'ServiceChannel', servicePhone: { '@type': 'ContactPoint', telephone: '+48530366668', availableLanguage: 'pl' } },
+};
+const breadcrumbs = breadcrumbSchema([{ name: 'Strona główna', path: '/' }, { name: 'Usługi', path: '/#uslugi' }, { name: service.title, path: `/uslugi/${service.slug}/` }]);
 ---
 <Base title={`${service.title} — Głogów i okolice`} description={service.description}>
   <section class="detail-hero"><div class="shell">
@@ -16,5 +26,7 @@ const { service } = Astro.props;
   </div></section>
   <section class="section"><div class="shell detail-content"><div><p class="eyebrow"><span class="tiny-line"></span> O usłudze</p><h2>Ustalmy szczegóły.</h2><p class="detail-description">{service.details}</p></div><aside class="prepare-panel" aria-labelledby="prepare-title"><h3 id="prepare-title">Co warto podać<br />podczas rozmowy</h3><ul>{service.prepare.map(item => <li><Icon name="check" /><span>{item}</span></li>)}</ul><p>Nie musisz znać wszystkich szczegółów — opisz swoją sprawę.</p></aside></div></section>
   <section class="other-services"><div class="shell"><h2>Pozostałe usługi</h2><div>{services.filter(item => item.slug !== service.slug).map(item => <a href={withBase(`/uslugi/${item.slug}/`)}>{item.title}<Icon name="arrow" /></a>)}</div></div></section>
+  <section class="section"><div class="shell detail-content"><div><h2>Jak ustalić cenę i termin?</h2><p class="detail-description">Podaj miejscowość, rodzaj obiektu i zakres potrzebnych prac. Podczas rozmowy omówimy możliwość realizacji, wycenę oraz dostępny termin. Obsługujemy Głogów i okolice — możliwość dojazdu pod konkretny adres potwierdzimy telefonicznie.</p></div><aside class="prepare-panel"><h3>Przed zamówieniem przeglądu</h3><p><a href={withBase('/faq/')}>Pytania o przegląd instalacji gazowej: zakres, cena i przygotowanie</a></p><p><a href={withBase('/blog/przeglad-kotla-a-przeglad-instalacji-gazowej/')}>Czym różni się serwis kotła od przeglądu instalacji gazowej?</a></p></aside></div></section>
   <Contact />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify([serviceSchema, breadcrumbs]).replace(/</g, '\\u003c')} />
 </Base>
